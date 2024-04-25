@@ -20,7 +20,7 @@ export default function Navbar() {
         wasPreviouslyAuthenticated,
       })
       if (isNewUser) {
-        router.push('/create-org')
+        router.push('/dashboard')
         return
       }
       if (!wasPreviouslyAuthenticated) router.push('/dashboard')

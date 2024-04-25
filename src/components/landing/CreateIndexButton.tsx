@@ -15,7 +15,7 @@ export default function CreateIndexButton() {
         wasPreviouslyAuthenticated,
       })
       if (isNewUser) {
-        router.push('/create-org')
+        router.push('/')
         return
       }
       if (!wasPreviouslyAuthenticated) router.push('/dashboard')
