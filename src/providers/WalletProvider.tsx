@@ -5,7 +5,7 @@ import { PrivyProvider } from '@privy-io/react-auth'
 export default function WalletProvider({ children }: { children: React.ReactNode }) {
   return (
     <PrivyProvider
-      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID ?? 'clviud44n00vv12igc8tyxe3t'}
+      appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID ?? ''}
       config={{
         // Customize Privy's appearance in your app
         appearance: {
