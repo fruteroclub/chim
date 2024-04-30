@@ -22,6 +22,7 @@ type ProofDetailResponse = {
   proof: {
     proof: string
   }
+  proof_id: string
 }
 
 type ProveResponse = {
@@ -62,6 +63,56 @@ export const zkRouter = createTRPCRouter({
         }
 
         await new Promise((resolve) => setTimeout(resolve, 1000))
+      }
+    }),
+
+  createIndex: publicProcedure
+    .input(
+      z.object({
+        tokenIndexName: z.string().min(1),
+        tokenIndexSymbol: z.string().min(1),
+        tokenIndexLiquidity: z.string().min(1),
+        originChainId: z.string().min(1),
+        tokenAddress1: z.string().min(1),
+        valueToken1: z.string().min(1),
+        percentageToken1: z.string().min(1),
+        tokenAddress2: z.string().min(1),
+        valueToken2: z.string().min(1),
+        percentageToken2: z.string().min(1),
+        tokenAddress3: z.string().min(1),
+        valueToken3: z.string().min(1),
+        percentageToken3: z.string().min(1),
+        contractAddress: z.string().min(1),
+        zkProof: z.string().min(1),
+        zkProofId: z.string().min(1),
+      }),
+    )
+    .mutation(async ({ ctx, input }) => {
+      try {
+        const newTokenIndex = await ctx.db.tokenIndex.create({
+          data: {
+            name: input.tokenIndexName,
+            symbol: input.tokenIndexSymbol,
+            liquidity: parseFloat(input.tokenIndexLiquidity),
+            originChainId: parseInt(input.originChainId),
+            tokenAddress1: input.tokenAddress1,
+            valueToken1: parseFloat(input.valueToken1),
+            percentageToken1: parseFloat(input.percentageToken1),
+            tokenAddress2: input.tokenAddress2,
+            valueToken2: parseFloat(input.valueToken2),
+            percentageToken2: parseFloat(input.percentageToken2),
+            tokenAddress3: input.tokenAddress3,
+            valueToken3: parseFloat(input.valueToken3),
+            percentageToken3: parseFloat(input.percentageToken3),
+            contractAddress: input.contractAddress,
+            zkProof: input.zkProof,
+            zkProofId: input.zkProofId,
+          },
+        })
+        return { newTokenIndex }
+      } catch (error) {
+        console.log(error)
+        return { newTokenIndex: null }
       }
     }),
 })
