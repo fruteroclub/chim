@@ -1,4 +1,19 @@
-# Create T3 App
+# Chad Index Manager (CHIM)
+
+## Verified Contract:
+https://sepolia.scrollscan.com/address/0x53783878377fead9323973f5617fE634105Ca484#code
+[https://scrollscan.com/address/0x4b1F21c9897EBA72bBe488D3B3b1Fe8a8df498F9](https://sepolia.scrollscan.com/address/0x4b1F21c9897EBA72bBe488D3B3b1Fe8a8df498F9#code)
+
+
+## Contracts Repo:
+[CHIM Vault](https://github.com/fruteroclub/chim_vault)
+
+## Sindri Implementation:
+https://github.com/fruteroclub/chim/blob/main/src/server/api/routers/zkProof.ts
+
+## Defi Defender
+https://github.com/Another-DevX/defender-sdk-backend-vortex-hackaton
+
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
